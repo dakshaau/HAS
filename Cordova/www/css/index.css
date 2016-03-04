@@ -1,0 +1,33 @@
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#E4E4E4;
+    }
+
+.toggleb{
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 25%;
+    margin-bottom: 25%;
+    height: 50%;
+    width: 90%;
+    background-color:#E0E0E0;
+    border-radius: 2em;
+    border: 2px dashed;
+}
+
+.divi{
+    padding: 10% 10% 10% 10%;
+}
+
+.fontf{
+    font-family: "Glyphicons Halflings";
+    font-size: 2em;
+
+}
+
+.indiv{
+    display: -webkit-inline-block;
+    /*padding-left : 45%;*/
+}
