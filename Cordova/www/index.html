@@ -1,34 +1,17 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
 
 <head>
+    <title>Capture Photo</title>
     <meta charset="utf-8" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=480" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-switch.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
+
+
+
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile.external-png-1.4.5.min.css" />
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons-1.4.5.min.css" />
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-png-1.4.5.min.css" />
@@ -36,70 +19,188 @@
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.5.min.css" />
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.5.min.css" />
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
-    
-    
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery-1.11.2.min.js"></script>
 
 
 
-    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
-    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap-switch.min.js"></script>
-    <script type="text/javascript" src="js/jquery.jsonp-2.4.0.min.js"></script>
-    <script type="text/javascript" src="js/Connection.js"></script>
-    <script type="text/javascript" src="js/network.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <title>Hello World</title>
+    <script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery.jsonp-2.4.0.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/index.js"></script>
+
 </head>
 
 <body>
-    <div class="toggleb">
-        <div class="divi">
-            <div class="indiv"><input id="rl1" type="checkbox" name="my-checkbox" data-inverse="true" data-label-text="Relay 1" data-size="large" data-on-color="info"></div><br>
-            <div class="indiv"><input id="rl2" type="checkbox" name="my-checkbox" data-inverse="true" data-size="large" data-label-text="Relay 2" data-on-color="primary"></div><br>
-            <div class="indiv"><input id="rl3" type="checkbox" name="my-checkbox" data-inverse="true" data-size="large" data-label-text="Relay 3" data-on-color="success"></div>
+    <div data-role="page" id="page1">
+
+        <div data-role="header">
+            <a style='padding:0px 0px;'><img src='img/logo.png' style='width:50px;'></a>
+            <h1>HAS Remote</h1>
+            <a href='#page2' data-transition='slide' class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left" id="loginBut">Login</a>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <form>
+                <table style="margin-left: auto;margin-right:auto;">
+                    <tr>
+                        <td style="text-align:right;">
+                            <label>Fan : </label>
+                        </td>
+                        <td>
+                            <select id="flip-1" data-role="flipswitch" data-theme='b'>
+                                <option value="off">OFF</option>
+                                <option value="on">ON</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Light : </label>
+                        </td>
+                        <td>
+                            <select id="flip-2" data-role="flipswitch" data-theme='b'>
+                                <option value="off">OFF</option>
+                                <option value="on">ON</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+
+                <!--     <div class="ui-block-a">
+                        
+                        
+                    </div>
+                    <div class="ui-block-b">
+                        <br>
+                        
+                    </div>
+
+                </div>
+
+                <div style="margin-left:auto;margin-right:auto;">
+                    Fan : &nbsp;
+                    <select id="flip-1" data-role="flipswitch" data-theme='b'>
+                        <option value="off">OFF</option>
+                        <option value="on">ON</option>
+                    </select>
+                </div>
+                <div>Light : &nbsp;
+                    <select id="flip-2" data-role="flipswitch" data-theme='b'>
+                        <option value="off">OFF</option>
+                        <option value="on">ON</option>
+                    </select>
+                </div>-->
+
+
+            </form>
+            <input id='but-1' class="ui-btn-inline" value='Open Lock' type='button'>
+            <br>
+            <a id='mic' class='mic'></a>
+            <br>
+            <input id='command' type='text' class="ui-inline" disabled>&nbsp;
+
+        </div>
+    </div>
+    <div data-role="page" id="page2">
+
+        <div data-role="header">
+            <a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" data-transition='slide' data-direction='reverse' id='homeC'>Home</a>
+            <h1>Login</h1>
+            <a href="#reg1" class="ui-btn ui-corner-all ui-shadow ui-icon-edit ui-btn-icon-left" data-transition='fade' id='regB'>Register</a>
+        </div>
+
+        <div data-role="main" class="ui-content" style="text-align:center;">
+            <span>Use Face<br><br><img class="cameraBig" src='img/face-rec.png' id='face'></span>
+            <hr>
+            <form>
+                <label for="#uname">Username:</label>
+                <input type="text" id="uname" data-clear-btn="true">
+                <label for="#pswd">Password:</label>
+                <input type="password" id="pswd" data-clear-btn="true" autocomplete='off'>
+                <input type='button' class="ui-btn-inline" value='Login' id='loginSub'>
+            </form>
+            <!--<a href="#impop" data-rel="popup" data-position-to="#page2" class="ui-icon-plus ui-nodisc-icon">
+              <img id="image" src="" style="width:100px;height:100px;">
+            </a>
+            <div data-role='popup' id='impop'>
+                <img src='' style='width=90%;' id='popim'>
+            </div>-->
+        </div>
+    </div>
+    <div data-role="page" id="reg1">
+
+        <div data-role="header">
+            <a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" data-transition='slide' data-direction='reverse'>Cancel</a>
+            <h1>Register User</h1>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <form>
+                <label>Username: </label>
+                <input type='text' id='ureg'>
+                <label>Password: </label>
+                <input type="password" id='preg'>
+                <label>Confirm Password: </label>
+                <input type='password' id='pcreg'>
+                <label>Name: </label>
+                <input type='text' id='usname'><br>
+                <input type='button' class='ui-btn ui-inline' value='Continue' id='regcont'>
+            </form>
         </div>
     </div>
 
+    <div data-role="page" id="reg2">
 
-    <!--<div id="alert" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Alert</h4>
-                </div>
-                <div class="modal-body">
-                    <p>ERROR!</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>-->
-    <!--<br>
-    <br>
-    <input type="button" name="Click" value="Click" id="clck">
-    <div id="trial">0</div>-->
-    <!--<div data-role="page" id="home">
         <div data-role="header">
-            <h1>Hello there</h1>
-        </div> 
-
-        <div class="wi-content" role="main">
-            <h2>xcvzxjcv</h2>
+            <a href="#reg1" class="ui-btn ui-corner-all ui-shadow ui-icon-carat-l ui-btn-icon-left ui-btn-icon-notext" data-transition='slide' data-direction='reverse'>Cancel</a>
+            <h1>Register User</h1>
         </div>
-    </div>-->
 
-    <!--<div class="app">
-        <h1>Apache Cordova</h1>
-        <div id="deviceready" class="blink">
-            <p class="event listening">Connecting to Device</p>
-            <p class="event received">Device is Ready</p>
+        <div data-role="main" class="ui-content">
+            <span>It is recommended that you provide four face samples to be able to use face recognition features. You can skip this option if camera is unavailable</span>
+            <table style="margin-left: auto;margin-right:auto;">
+                    <tr>
+                        <td style="border: 1px dashed black;">
+                            <a href='#' name='pic' style="padding:2px 2px;"><img src='img/camera-black.svg' used='no'></a>
+                        </td>
+                        <td style="border: 1px dashed black;">
+                           <a href='#' name='pic' style="padding:2px 2px;"><img src='img/camera-black.svg' used='no'></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px dashed black;">
+                            <a href='#' name='pic' style="padding:2px 2px;"><img src='img/camera-black.svg' used='no'></a>
+                        </td>
+                        <td style="border: 1px dashed black;">
+                            <a href='#' name='pic' style="padding:2px 2px;"><img src='img/camera-black.svg' used='no'></a>
+                        </td>
+                    </tr>
+                </table>
+            <input type='button' class='ui-btn-inline' value='Submit' id='regsub'>
         </div>
-    </div>-->
-    <script type="text/javascript" src="cordova.js"></script>
+        <div data-role='popup' id='impop'>
+                <img src='' style='width=90%;' id='popim'>
+            </div>
+    </div>
 
+    <!--<div data-role="popup" id="login" data-overlay-theme="b" data-dismissible="false">
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        
+        <div data-role="header">
+            <h1>Login</h1>
+        </div>
+
+        <div data-role="main" class="ui-content" style="text-align:center;">
+            
+            <p>jQuery Mobile is FUN!</p>
+            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-back ui-btn-icon-left" data-rel="back">Go Back</a>
+        </div>
+
+        <!<div data-role="footer">
+        <h1>Footer Text</h1>
+      </div>
+    </div>-->
 </body>
 
 </html>

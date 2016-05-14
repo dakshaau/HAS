@@ -9,7 +9,15 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"NetworkStatus\"><param name=\"android-package\" value=\"org.apache.cordova.networkinformation.NetworkManager\" /></feature>",
+                            "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"org.apache.cordova.camera.CameraLauncher\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SpeechRecognizer\"><param name=\"android-package\" value=\"com.phonegap.plugins.speech.SpeechRecognizer\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>",
                             "count": 1
                         },
                         {
@@ -17,7 +25,7 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>",
+                            "xml": "<feature name=\"NetworkStatus\"><param name=\"android-package\" value=\"org.apache.cordova.networkinformation.NetworkManager\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -26,6 +34,10 @@
             "AndroidManifest.xml": {
                 "parents": {
                     "/*": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+                            "count": 1
+                        },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
                             "count": 1
@@ -42,17 +54,20 @@
         }
     },
     "installed_plugins": {
-        "org.apache.cordova.network-information": {
-            "PACKAGE_NAME": "com.example.hello"
+        "org.apache.cordova.camera": {
+            "PACKAGE_NAME": "home.remote"
         },
-        "org.apache.cordova.console": {
-            "PACKAGE_NAME": "com.example.hello"
-        },
-        "org.apache.cordova.vibration": {
-            "PACKAGE_NAME": "com.example.hello"
+        "com.phonegap.plugins.speech": {
+            "PACKAGE_NAME": "home.remote"
         },
         "org.apache.cordova.dialogs": {
-            "PACKAGE_NAME": "com.example.hello"
+            "PACKAGE_NAME": "home.remote"
+        },
+        "org.apache.cordova.vibration": {
+            "PACKAGE_NAME": "home.remote"
+        },
+        "org.apache.cordova.network-information": {
+            "PACKAGE_NAME": "home.remote"
         }
     },
     "dependent_plugins": {}
